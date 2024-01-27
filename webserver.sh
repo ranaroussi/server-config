@@ -2,20 +2,12 @@ export DEBIAN_FRONTEND=noninteractive
 export NODE_VERSION=18
 export PHP_VERSION=8.3
 
-dpkg --purge apache2 && \
-    apt purge apache2 && \
-    apt remove apache2 && \
-    rm -f /etc/init.d/apache2 && \
-
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && \
 nvm install $NODE_VERSION && \
 
 add-apt-repository -y ppa:ondrej/php && \
 apt update -yq && apt upgrade -yq && \
 apt install -yq \
-  ca-certificates \
-  apt-transport-https \
-  software-properties-common \
   nginx \
   nginx-extras \
   mariadb-server \
